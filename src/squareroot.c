@@ -5,7 +5,7 @@
 
 double squareroot( double num )
 {
-	double sqrt = sqrt( num );
-	prettyprint( (int) sqrt );
-	return sqrt;
+	double rv = sqrt( num );
+	prettyprint( (int) rv );
+	return rv;
 }
