@@ -5,14 +5,12 @@ message( "PROJECT_BINARY_DIR points to " ${PROJECT_BINARY_DIR})
 
 message( "squareroot_SOURCE_DIR points to " ${squareroot_SOURCE_DIR} )
 
-include_directories("${PROJECT_SOURCE_DIR}/include"
-	"${PROJECT_SOURCE_DIR}/../prettyprint/include" )
+#include_directories("${PROJECT_SOURCE_DIR}/include"
+#	"${PROJECT_SOURCE_DIR}/../prettyprint/include" )
 
-link_directories("${PROJECT_SOURCE_DIR}/src" 
-	"${PROJECT_SOURCE_DIR}/../prettyprint/lib" )
+include_directories("${squareroot_SOURCE_DIR}/include"
+	"${squareroot_SOURCE_DIR}/../prettyprint/include")
 
-add_executable(squareroot squareroot.c test.c)
+add_library(squareroot STATIC squareroot.c)
 
-target_link_libraries(squareroot libprettyprint.a m)
-
-install(TARGETS squareroot DESTINATION "${PROJECT_SOURCE_DIR}/bin")
+install(TARGETS squareroot DESTINATION ${PROJECT_SOURCE_DIR}/lib)
