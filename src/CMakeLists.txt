@@ -34,7 +34,11 @@ include_directories(
    ${squareroot_SOURCE_DIR}/include
 )
 
-add_library(squareroot STATIC squareroot.c )
+add_library( squareroot STATIC squareroot.c )
+
+target_link_libraries( squareroot m )
+
+add_dependencies( squareroot project_prettyprint )
 
 # install the targets to specific directories
 install( TARGETS squareroot DESTINATION ${squareroot_SOURCE_DIR}/lib )
